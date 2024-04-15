@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class MarsConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'take_home.mars'
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "take_home.mars"

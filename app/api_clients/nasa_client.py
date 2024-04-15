@@ -1,8 +1,7 @@
+import requests
 from django.conf import settings
 from django.db.models import TextChoices
-from datetime import date
 from pydantic import BaseModel
-import requests
 
 
 class NasaCamerasChoices(TextChoices):
@@ -26,8 +25,10 @@ class MarsImageLinkList(BaseModel):
 class NasaClient:
     api_key = settings.NASA_API_KEY
     base_url = settings.NASA_BASE_URL
-    
-    def get_mars_photos(self, camera: NasaCamerasChoices, earth_date: str, page_number: int = 0):
+
+    def get_mars_photos(
+        self, camera: NasaCamerasChoices, earth_date: str, page_number: int = 0
+    ):
         """
         Returns a list of mars photos for a given camera and earth day.
         """
@@ -40,7 +41,8 @@ class NasaClient:
         mars_photos = requests.get(self.base_url, params=params).json()["photos"]
         return MarsImageLinkList(
             mars_photos=[
-                MarsImageLink(img_src=mars_photo["img_src"]) for mars_photo in mars_photos
+                MarsImageLink(img_src=mars_photo["img_src"])
+                for mars_photo in mars_photos
             ]
         )
 

@@ -144,7 +144,7 @@ REST_FRAMEWORK = {
 SPECTACULAR_SETTINGS = {
     "TITLE": "Mars API",
     "DESCRIPTION": "Take home exam for Emotive position",
-    'VERSION': '0.1.0',
+    "VERSION": "0.1.0",
     "SERVE_INCLUDE_SCHEMA": False,
     "COMPONENT_SPLIT_REQUEST": True,
 }

@@ -1,5 +1,5 @@
-from rest_framework import serializers
 from api_clients.nasa_client import NasaCamerasChoices
+from rest_framework import serializers
 
 
 class RetrieveMarsPhotosSerializer(serializers.Serializer):

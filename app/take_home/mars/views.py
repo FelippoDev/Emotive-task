@@ -1,19 +1,16 @@
-from drf_spectacular.utils import (
-    extend_schema,
-    OpenApiParameter,
-)
+from api_clients.nasa_client import MarsImageLinkList, nasa_client
 from drf_spectacular.types import OpenApiTypes
-
+from drf_spectacular.utils import OpenApiParameter, extend_schema
+from rest_framework import generics
 from rest_framework.response import Response
 from take_home.mars.serializers import RetrieveMarsPhotosSerializer
-from api_clients.nasa_client import MarsImageLinkList, nasa_client
-from rest_framework import generics
+
 
 @extend_schema(tags=["Mars Rover"])
 class MarsPhotosGenericAPIView(generics.GenericAPIView):
     throttle_classes = []
     serializer_class = RetrieveMarsPhotosSerializer
-        
+
     @extend_schema(
         parameters=[
             OpenApiParameter(
