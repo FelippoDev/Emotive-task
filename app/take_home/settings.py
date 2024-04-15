@@ -18,6 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # NASA API
 NASA_API_KEY = os.getenv("NASA_API_KEY")
+NASE_BASE_URL = os.getenv("NASE_BASE_URL")
 
 
 # Quick-start development settings - unsuitable for production
@@ -41,6 +42,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "take_home.mars",
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -129,3 +132,22 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "DEFAULT_THROTTLE_CLASSES": [
+        "rest_framework.throttling.AnonRateThrottle",
+    ],
+    "DEFAULT_THROTTLE_RATES": {"anon": "50/day"},
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Mars API",
+    "DESCRIPTION": "Take home exam for Emotive position",
+    'VERSION': '0.1.0',
+    "SERVE_INCLUDE_SCHEMA": False,
+    "SWAGGER_UI_DIST": "SIDECAR",
+    "SWAGGER_UI_FAVICON_HREF": "SIDECAR",
+    "REDOC_DIST": "SIDECAR",
+    "COMPONENT_SPLIT_REQUEST": True,
+}
