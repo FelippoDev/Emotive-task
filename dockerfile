@@ -17,6 +17,8 @@ RUN python -m venv $VIRTUAL_ENV \
 
 COPY docker/entrypoint.sh /entrypoint/entrypoint.sh
 
+RUN chmod +x /entrypoint/entrypoint.sh
+
 COPY app /app
 
-ENTRYPOINT ["/entrypoint/entrypoint.sh"]
+# ENTRYPOINT ["/entrypoint/entrypoint.sh"]
