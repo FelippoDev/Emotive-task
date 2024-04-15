@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # NASA API
 NASA_API_KEY = os.getenv("NASA_API_KEY")
-NASE_BASE_URL = os.getenv("NASE_BASE_URL")
+NASA_BASE_URL = os.getenv("NASA_BASE_URL")
 
 
 # Quick-start development settings - unsuitable for production
@@ -146,8 +146,5 @@ SPECTACULAR_SETTINGS = {
     "DESCRIPTION": "Take home exam for Emotive position",
     'VERSION': '0.1.0',
     "SERVE_INCLUDE_SCHEMA": False,
-    "SWAGGER_UI_DIST": "SIDECAR",
-    "SWAGGER_UI_FAVICON_HREF": "SIDECAR",
-    "REDOC_DIST": "SIDECAR",
     "COMPONENT_SPLIT_REQUEST": True,
 }

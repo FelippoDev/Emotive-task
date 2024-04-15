@@ -25,7 +25,7 @@ class MarsImageLinkList(BaseModel):
 
 class NasaClient:
     api_key = settings.NASA_API_KEY
-    base_url = settings.NASE_BASE_URL
+    base_url = settings.NASA_BASE_URL
     
     def get_mars_photos(self, camera: NasaCamerasChoices, earth_date: str, page_number: int = 0):
         """
