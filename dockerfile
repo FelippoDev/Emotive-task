@@ -21,4 +21,4 @@ RUN chmod +x /entrypoint/entrypoint.sh
 
 COPY app /app
 
-# ENTRYPOINT ["/entrypoint/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint/entrypoint.sh"]
