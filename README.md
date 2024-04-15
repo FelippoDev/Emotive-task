@@ -1,45 +1,38 @@
-# Take Home - Django Skeleton
+# Take Home - Mars Photo List API
+Retrieve all mars photos from a specific day and camera.
 
-## Getting Started
-Dependencies:
+## Requirements
+Ensure a seamless setup with the following prerequisites:
 * Docker - See [Get Docker](https://docs.docker.com/get-docker/)
 * Docker Compose - Installed with Docker Desktop, See [Install Docker Compose](https://docs.docker.com/compose/install/)
+* API Key - To generate the API Key access the NASA website, See [Generate NASA API Key](https://api.nasa.gov/index.html)
 
-With the dependencies installed, running the project is as simple as running:
-```bash
-docker compose up
+
+## Setup
+1. Clone github repository in your local system `git clone https://github.com/FelippoDev/Emotive-task`
+2. Navigate to the project directory in your terminal
+3. Create the necessary environment variables: within the repository, create a file called `.env` inside ```app``` folder then inside this file set the environment variables following the examples in the `.env.example`
+4. set the environment variable `NASA_BASE_URL` to `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos` and the variable ```NASA_API_KEY``` set the generated [API Key](#requirements)
+5. At last, run the command:
+```python
+    docker-compose up --build
 ```
 
-This will pull the required Docker images and spin up a container running your service on http://localhost:8000.
+## Starting
+You can access the API docs by visiting this URL in your preferred browser.
+API Docs: `http://127.0.0.1:8000/`
 
-To end the service, press `Ctrl+C`
+## API
+In the API we have a endpoint called `GET /api/v1/mars_photos` that awaits two query parameters:
 
-## The Activity
-Build a simple API in Python, using Django or Flask. This API should integrate with a third party service or a database and accomplish something interesting, but also shouldn’t take terribly long to implement - endpoints for one or two resources would be sufficient. This activity shouldn’t take more than an hour or so. If this doesn’t seem like much time - you’re right! We expect that you’ll have to focus on one of a few areas for your API:
-* The API design and interface (REST vs. GraphQL)
-* Integration with a third-party API OR Integration with a database
+- **camera(Enum):** Select camera by name, Only accepts the following cameras names:
+    1. `Chemistry and Camera Complex`
+    2. `Navigation Camera`
+    3. `Rear Hazard Avoidance Camera`
+    4. `Front Hazard Avoidance Camera`
+    5. `Mast Camera`
+    6. `Mars Hand Lens Imager`
+    7. `Mars Descent Imager`
 
-### Requirements
-1. A clear problem statement - what do you intend the API to accomplish?
-2. Dependencies for running the API
-3. A code repository link from which your interview can checkout the code OR a .zip file containing the source code
-4. A README file in the code root containing instructions for running the API
+- **earth_date(Date):** Retrieve mars photo by earth date, example: `2024-01-01`
 
-### Some Ideas...
-#### Interesting APIs
-* [NASA Open APIs](https://api.nasa.gov/index.html)
-* [OpenWeather API](https://openweathermap.org/api)
-* [Polygon.io Stocks API](https://polygon.io/)
-
-Plus anything more you can discover
-#### Databases
-* [SQLite](https://www.sqlite.org/index.html)
-* [PostgreSQL](https://www.postgresql.org/)
-* [MySQL](https://www.mysql.com/)
-* [MariaDB](https://mariadb.org/)
-
-PostgreSQL is provided in our skeleton projects, but another database is fine if you’d prefer.
-#### Projects
-* A stock recommendation service
-* A green/red alert for outdoor activity safety
-* A Mars Rover camera viewer
